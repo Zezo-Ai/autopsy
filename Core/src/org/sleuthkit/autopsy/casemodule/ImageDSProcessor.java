@@ -317,6 +317,9 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
             sha256 = null;
         }
         bitlockerPassword = configPanel.getBitlockerPassword();
+        if (bitlockerPassword.isEmpty()) {
+            bitlockerPassword = null;
+        }
     }
 
     /**

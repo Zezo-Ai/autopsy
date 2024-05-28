@@ -457,7 +457,7 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
     }
     
     String getBitlockerPassword() {
-        return this.getBitlockerPasswordTextField.getText();
+        return this.bitlockerPasswordTextField.getText();
     }
 
     public void reset() {
