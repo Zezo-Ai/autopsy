@@ -504,3 +504,5 @@ LocalFilesPanel.timestampToIncludeLabel.text=Timestamps To Include:
 LocalFilesPanel.accessTimeCheckBox.text=Access Time - Can be changed when the file is opened
 LocalFilesPanel.timeStampToIncludeLabel.text=Timestamps To Include:
 LocalFilesPanel.timeStampNoteLabel.text=NOTE: Time stamps may have changed when the files were copied to the current location. 
+ImageFilePanel.bitlockerPasswordLabel.text=Bitlocker Password (optional):
+ImageFilePanel.bitlockerPasswordTextField.text=jTextField1

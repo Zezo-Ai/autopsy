@@ -82,6 +82,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
     private String sha1;
     private String sha256;
     private Host host = null;
+    private String bitlockerPassword;
 
     static {
         filtersList.add(allFilter);
@@ -315,6 +316,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         if (sha256.isEmpty()) {
             sha256 = null;
         }
+        bitlockerPassword = configPanel.getBitlockerPassword();
     }
 
     /**
@@ -413,7 +415,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
             return;
         }
 
-        AddImageTask.ImageDetails imageDetails = new AddImageTask.ImageDetails(deviceId, image, sectorSize, timeZone, ignoreFatOrphanFiles, md5, sha1, sha256, null);
+        AddImageTask.ImageDetails imageDetails = new AddImageTask.ImageDetails(deviceId, image, sectorSize, timeZone, ignoreFatOrphanFiles, md5, sha1, sha256, null, null);
         addImageTask = new AddImageTask(imageDetails,
                 progressMonitor,
                 new StreamingAddDataSourceCallbacks(ingestStream),
@@ -449,6 +451,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         timeZone = null;
         ignoreFatOrphanFiles = false;
         host = null;
+        bitlockerPassword = null;
         configPanel.reset();
     }
 
