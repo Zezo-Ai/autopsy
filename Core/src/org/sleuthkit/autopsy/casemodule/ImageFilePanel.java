@@ -129,8 +129,8 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
         return sha256HashTextField;
     }
     
-    private JTextField getBitlockerPasswordTextField() {
-        return bitlockerPasswordTextField;
+    private JTextField getPasswordTextField() {
+        return passwordTextField;
     }
     
     private JFileChooser getChooser() {
@@ -173,8 +173,8 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
         md5HashLabel = new javax.swing.JLabel();
         hashValuesLabel = new javax.swing.JLabel();
         hashValuesNoteLabel = new javax.swing.JLabel();
-        bitlockerPasswordLabel = new javax.swing.JLabel();
-        bitlockerPasswordTextField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        passwordTextField = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(0, 65));
         setPreferredSize(new java.awt.Dimension(403, 65));
@@ -226,9 +226,9 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
         org.openide.awt.Mnemonics.setLocalizedText(hashValuesNoteLabel, org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.hashValuesNoteLabel.text")); // NOI18N
         hashValuesNoteLabel.setEnabled(false);
 
-        org.openide.awt.Mnemonics.setLocalizedText(bitlockerPasswordLabel, org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.bitlockerPasswordLabel.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(passwordLabel, org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.passwordLabel.text")); // NOI18N
 
-        bitlockerPasswordTextField.setText(org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.bitlockerPasswordTextField.text")); // NOI18N
+        passwordTextField.setText(org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.passwordTextField.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -269,9 +269,9 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
                         .addComponent(sha256HashTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(hashValuesNoteLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bitlockerPasswordLabel)
+                        .addComponent(passwordLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bitlockerPasswordTextField))
+                        .addComponent(passwordTextField))
                     .addComponent(hashValuesLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -295,8 +295,8 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
                     .addComponent(sectorSizeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bitlockerPasswordLabel)
-                    .addComponent(bitlockerPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(hashValuesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -315,7 +315,7 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
                 .addComponent(hashValuesNoteLabel)
                 .addGap(18, 18, 18)
                 .addComponent(errorLabel)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -362,8 +362,6 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
     }//GEN-LAST:event_browseButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bitlockerPasswordLabel;
-    private javax.swing.JTextField bitlockerPasswordTextField;
     private javax.swing.JButton browseButton;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel hashValuesLabel;
@@ -371,6 +369,8 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
     private javax.swing.JLabel md5HashLabel;
     private javax.swing.JTextField md5HashTextField;
     private javax.swing.JCheckBox noFatOrphansCheckbox;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField passwordTextField;
     private javax.swing.JLabel pathLabel;
     private javax.swing.JTextField pathTextField;
     private javax.swing.JComboBox<String> sectorSizeComboBox;
@@ -456,8 +456,8 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
         return this.sha256HashTextField.getText();
     }
     
-    String getBitlockerPassword() {
-        return this.bitlockerPasswordTextField.getText();
+    String getPassword() {
+        return this.passwordTextField.getText();
     }
 
     public void reset() {
@@ -466,7 +466,7 @@ public class ImageFilePanel extends JPanel implements DocumentListener {
         this.md5HashTextField.setText(null);
         this.sha1HashTextField.setText(null);
         this.sha256HashTextField.setText(null);
-        this.bitlockerPasswordTextField.setText(null);
+        this.passwordTextField.setText(null);
     }
 
     /**
