@@ -107,7 +107,7 @@ class AddImageTask implements Runnable {
         try {
             synchronized (tskAddImageProcessLock) {
                 if (!tskAddImageProcessStopped) {
-                    tskAddImageProcess = currentCase.getSleuthkitCase().makeAddImageProcess(imageDetails.timeZone, true, imageDetails.ignoreFatOrphanFiles, imageWriterPath);
+                    tskAddImageProcess = currentCase.getSleuthkitCase().makeAddImageProcess(imageDetails.timeZone, true, imageDetails.ignoreFatOrphanFiles, imageWriterPath, imageDetails.password);
                 } else {
                     return;
                 }

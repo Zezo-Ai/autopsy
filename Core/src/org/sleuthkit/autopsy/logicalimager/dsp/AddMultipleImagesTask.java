@@ -128,7 +128,7 @@ class AddMultipleImagesTask implements Runnable {
         for (String imageFilePath : imageFilePaths) {
             try {
                 currentImage = SleuthkitJNI.addImageToDatabase(currentCase.getSleuthkitCase(), new String[]{imageFilePath}, 
-                    0, timeZone, "", "", "", deviceId, host, null);
+                    0, timeZone, "", "", "", deviceId, host);
             } catch (TskCoreException ex) {
                 LOGGER.log(Level.SEVERE, "Error adding image " + imageFilePath + " to database", ex);
                 errorMessages.add(Bundle.AddMultipleImagesTask_imageError(imageFilePath));

@@ -173,7 +173,7 @@ public class LocalDiskDSProcessor implements DataSourceProcessor {
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
                     new String[]{drivePath}, sectorSize,
-                    timeZone, null, null, null, deviceId, this.host, this.password);
+                    timeZone, null, null, null, deviceId, this.host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding local disk with path " + drivePath + " to database", ex);
             final List<String> errors = new ArrayList<>();

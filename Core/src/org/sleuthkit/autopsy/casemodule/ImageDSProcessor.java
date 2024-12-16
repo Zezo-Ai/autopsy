@@ -207,7 +207,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         this.host = host;
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
-                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, this.host, this.password);
+                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, this.host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding data source with path " + imagePath + " to database", ex);
             final List<String> errors = new ArrayList<>();
@@ -271,7 +271,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         // Set up the data source before creating the ingest stream
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
-                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, this.host, this.password);
+                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, this.host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding data source with path " + imagePath + " to database", ex);
             final List<String> errors = new ArrayList<>();
@@ -394,6 +394,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
      * @param md5                  The MD5 hash of the image, may be null.
      * @param sha1                 The SHA-1 hash of the image, may be null.
      * @param sha256               The SHA-256 hash of the image, may be null.
+     * @param password             Password for image decryption.  May be null.
      * @param progressMonitor      Progress monitor for reporting progress
      *                             during processing.
      * @param callback             Callback to call when processing is done.
@@ -517,7 +518,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         ingestStream = new DefaultIngestStream();
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
-                    new String[]{imagePath}, sectorSize, timeZone, "", "", "", deviceId, host, this.password);
+                    new String[]{imagePath}, sectorSize, timeZone, "", "", "", deviceId, host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding data source with path " + imagePath + " to database", ex);
             final List<String> errors = new ArrayList<>();
@@ -547,7 +548,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         // Set up the data source before creating the ingest stream
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
-                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, host, this.password);
+                    new String[]{imagePath}, sectorSize, timeZone, md5, sha1, sha256, deviceId, host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding data source with path " + imagePath + " to database", ex);
             final List<String> errors = new ArrayList<>();

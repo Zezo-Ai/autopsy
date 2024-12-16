@@ -1230,7 +1230,7 @@ public class PortableCaseReportModule implements ReportModule {
                 if (content instanceof Image) {
                     Image image = (Image) content;
                     newContent = portableSkCase.addImage(image.getType(), image.getSsize(), image.getSize(), image.getName(),
-                            new ArrayList<>(), image.getTimeZone(), md5, sha1, sha256, image.getDeviceId(), newHost, null, trans);
+                            new ArrayList<>(), image.getTimeZone(), md5, sha1, sha256, image.getDeviceId(), newHost, trans);
                 } else if (content instanceof VolumeSystem) {
                     VolumeSystem vs = (VolumeSystem) content;
                     newContent = portableSkCase.addVolumeSystem(parentId, vs.getType(), vs.getOffset(), vs.getBlockSize(), trans);
