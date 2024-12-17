@@ -1,7 +1,7 @@
 <!DOCTYPE ivy-module [
     <!ENTITY httpcomponents.version "4.5.14">
     <!ENTITY curator.version "5.7.1">
-    <!ENTITY batik.version "5.18">
+    <!ENTITY batik.version "1.18">
 ]>
 <ivy-module version="2.0">
     <info organisation="org.sleuthkit.autopsy" module="core"/>

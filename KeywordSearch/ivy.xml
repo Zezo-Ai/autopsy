@@ -1,9 +1,9 @@
 
 <!DOCTYPE ivy-module [
-    <!ENTITY version "2.0">
     <!ENTITY jetty.version "12.0.16">
     <!ENTITY slf4j.version "2.0.16">
 ]>
+<ivy-module version="2.0">
     <info organisation="org.sleuthkit.autopsy" module="keywordsearch"/>
     <configurations >
         <!-- module dependencies -->
