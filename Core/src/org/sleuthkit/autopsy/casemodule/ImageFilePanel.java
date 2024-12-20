@@ -64,7 +64,7 @@ public class ImageFilePanel extends JPanel {
     private final String contextName;
     private final List<FileFilter> fileChooserFilters;
     
-    private static int VALIDATE_TIMEOUT_MILLIS = 1500;
+    private static int VALIDATE_TIMEOUT_MILLIS = 1200;
     static ScheduledThreadPoolExecutor delayedValidationService = new ScheduledThreadPoolExecutor(1, new ThreadFactoryBuilder().setNameFormat("ImageFilePanel delayed validation").build());
 
     private Future<Void> validateAction = null;
@@ -91,6 +91,7 @@ public class ImageFilePanel extends JPanel {
         sectorSizeComboBox.setSelectedIndex(0);
 
         errorLabel.setVisible(false);
+        loadingLabel.setVisible(false);
         this.fileChooserFilters = fileChooserFilters;
     }
 
@@ -198,6 +199,7 @@ public class ImageFilePanel extends JPanel {
         passwordLabel = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JTextField();
         javax.swing.JPanel spacer = new javax.swing.JPanel();
+        loadingLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(0, 65));
         setPreferredSize(new java.awt.Dimension(403, 65));
@@ -425,6 +427,22 @@ public class ImageFilePanel extends JPanel {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.weighty = 1.0;
         add(spacer, gridBagConstraints);
+
+        loadingLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/sleuthkit/autopsy/images/working_spinner.gif"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(loadingLabel, org.openide.util.NbBundle.getMessage(ImageFilePanel.class, "ImageFilePanel.loadingLabel.text")); // NOI18N
+        loadingLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        loadingLabel.setMaximumSize(new java.awt.Dimension(500, 60));
+        loadingLabel.setMinimumSize(new java.awt.Dimension(200, 20));
+        loadingLabel.setPreferredSize(new java.awt.Dimension(200, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(loadingLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     @NbBundle.Messages({"ImageFilePanel.000.confirmationMessage=The selected file"
@@ -474,6 +492,7 @@ public class ImageFilePanel extends JPanel {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel hashValuesLabel;
     private javax.swing.JLabel hashValuesNoteLabel;
+    private javax.swing.JLabel loadingLabel;
     private javax.swing.JLabel md5HashLabel;
     private javax.swing.JTextField md5HashTextField;
     private javax.swing.JCheckBox noFatOrphansCheckbox;
@@ -593,10 +612,9 @@ public class ImageFilePanel extends JPanel {
         "ImageFilePanel_validatePanel_unknownError=<html><body><p>An unknown error occurred while attempting to validate the image</p></body></html>"
     })
     public boolean validatePanel() {
-        errorLabel.setVisible(false);
-
         String path = getContentPaths();
         if (!isImagePathValid()) {
+            showError(null);
             return false;
         }
 
@@ -635,16 +653,18 @@ public class ImageFilePanel extends JPanel {
             return false;
         }
 
+        showError(null);
         return true;
     }
     
     /**
      * Show an error message if error message is non-empty. Otherwise, hide
-     * error message.
+     * error message.  Either way, hide loading label.
      *
-     * @param errorMessage The error message to show.
+     * @param errorMessage The error message to show or null for no error.
      */
     private void showError(String errorMessage) {
+        loadingLabel.setVisible(false);
         if (StringUtils.isNotBlank(errorMessage)) {
             errorLabel.setVisible(true);
             errorLabel.setText(errorMessage);
@@ -729,6 +749,11 @@ public class ImageFilePanel extends JPanel {
         private synchronized void delayValidate() {
             if (ImageFilePanel.this.validateAction != null) {
                 ImageFilePanel.this.validateAction.cancel(true);
+            }
+            
+            errorLabel.setVisible(false);
+            if (!ImageFilePanel.this.loadingLabel.isVisible()) {
+                ImageFilePanel.this.loadingLabel.setVisible(true);
             }
 
             ImageFilePanel.this.validateAction = ImageFilePanel.this.delayedValidationService.schedule(
