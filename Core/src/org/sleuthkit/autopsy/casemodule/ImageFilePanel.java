@@ -67,7 +67,9 @@ public class ImageFilePanel extends JPanel {
     private static int VALIDATE_TIMEOUT_MILLIS = 1200;
     static ScheduledThreadPoolExecutor delayedValidationService = new ScheduledThreadPoolExecutor(1, new ThreadFactoryBuilder().setNameFormat("ImageFilePanel delayed validation").build());
 
-    private Future<Void> validateAction = null;
+    private final Object validateActionLock = new Object();
+    private Runnable validateAction = null;
+    private Future<?> validateFuture = null;
 
     /**
      * Creates new form ImageFilePanel
@@ -632,10 +634,6 @@ public class ImageFilePanel extends JPanel {
             showError(Bundle.ImageFilePanel_validatePanel_invalidSHA256());
             return false;
         }
-
-        if (!PathValidator.isValidForCaseType(path, Case.getCurrentCase().getCaseType())) {
-            showError(Bundle.ImageFilePanel_validatePanel_dataSourceOnCDriveError());
-        }
         
         try {
             String password = this.getPassword();
@@ -652,8 +650,12 @@ public class ImageFilePanel extends JPanel {
             showError(Bundle.ImageFilePanel_validatePanel_unknownError());
             return false;
         }
-
-        showError(null);
+        
+        if (!PathValidator.isValidForCaseType(path, Case.getCurrentCase().getCaseType())) {
+            showError(Bundle.ImageFilePanel_validatePanel_dataSourceOnCDriveError());
+        } else {
+            showError(null);    
+        }
         return true;
     }
     
@@ -682,6 +684,16 @@ public class ImageFilePanel extends JPanel {
         }
         
         return true;
+    }
+    
+    /**
+     * @return True if the panel is on a delay for validating (i.e. typing a
+     * password for bitlocker).
+     */
+    public boolean isValidationLoading() {
+        synchronized (this.validateActionLock) {
+            return this.validateAction != null;
+        }
     }
 
     public void storeSettings() {
@@ -746,23 +758,64 @@ public class ImageFilePanel extends JPanel {
             delayValidate();
         }
 
-        private synchronized void delayValidate() {
-            if (ImageFilePanel.this.validateAction != null) {
-                ImageFilePanel.this.validateAction.cancel(true);
+        /**
+         * Run validation on a delay to avoid password checking too many times
+         * while typing.
+         */
+        private void delayValidate() {
+            boolean triggerUpdate = false;
+            synchronized (ImageFilePanel.this.validateActionLock) {
+                if (ImageFilePanel.this.validateFuture != null && 
+                        !ImageFilePanel.this.validateFuture.isCancelled() &&
+                        !ImageFilePanel.this.validateFuture.isDone()) {
+                    ImageFilePanel.this.validateFuture.cancel(true);
+                    triggerUpdate = true;
+                }
+                
+                ImageFilePanel.this.validateAction = new ValidationRunnable();
+
+                ImageFilePanel.this.validateFuture = ImageFilePanel.this.delayedValidationService.schedule(
+                        ImageFilePanel.this.validateAction,
+                        VALIDATE_TIMEOUT_MILLIS,
+                        TimeUnit.MILLISECONDS);
             }
             
+            // trigger invalidation after setting up new runnable if not already triggered
+            if (triggerUpdate) {
+                firePropertyChange(DataSourceProcessor.DSP_PANEL_EVENT.UPDATE_UI.toString(), false, true);
+            }
+
             errorLabel.setVisible(false);
             if (!ImageFilePanel.this.loadingLabel.isVisible()) {
                 ImageFilePanel.this.loadingLabel.setVisible(true);
             }
+        }
+        
+        /**
+         * Runnable to run the updateHelper if the validation action remains
+         * this runnable.
+         */
+        private class ValidationRunnable implements Runnable {
 
-            ImageFilePanel.this.validateAction = ImageFilePanel.this.delayedValidationService.schedule(
-                    () -> {
-                        ImageFilePanel.this.updateHelper();
-                        return null;
-                    },
-                    VALIDATE_TIMEOUT_MILLIS,
-                    TimeUnit.MILLISECONDS);
+            @Override
+            public void run() {
+                if (Thread.interrupted()) {
+                    return;
+                }
+                
+                synchronized (ImageFilePanel.this.validateActionLock) {
+                    if (ImageFilePanel.this.validateAction != this) {
+                        return;
+                    }
+
+                    // set the validation action to null to indicate that this is done running and can be validated.
+                    ImageFilePanel.this.validateAction = null;
+                    ImageFilePanel.this.validateFuture = null;
+                }
+                
+                ImageFilePanel.this.updateHelper();
+            }
+            
         }
     }
 }

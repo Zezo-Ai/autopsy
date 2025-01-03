@@ -163,7 +163,9 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
      */
     @Override
     public boolean isPanelValid() {
-        return configPanel.validatePanel();
+        // before attempting to validate the panel (a potentially long running operation), 
+        // check if the validation is loading or on delay.
+        return !configPanel.isValidationLoading() && configPanel.validatePanel();
     }
 
     /**
