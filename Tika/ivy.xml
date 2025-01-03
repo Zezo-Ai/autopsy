@@ -4,7 +4,7 @@
         <conf name="tika"/>
     </configurations>
     <dependencies >
-        <dependency conf="tika->default" org="org.apache.tika" name="tika-parsers" rev="3.0.0"/>
+        <dependency conf="tika->default" org="org.apache.tika" name="tika-parsers-standard-package" rev="3.0.0"/>
         <dependency conf="tika->default" org="org.apache.poi" name="ooxml-schemas" rev="1.4"/>
         
         <!-- <override org="org.jsoup" module="jsoup" rev="1.16.1"/>
