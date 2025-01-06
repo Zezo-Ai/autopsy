@@ -1,8 +1,3 @@
-<!DOCTYPE ivy-module [
-    <!ENTITY httpcomponents.version "4.5.14">
-    <!ENTITY curator.version "5.7.1">
-    <!ENTITY batik.version "1.18">
-]>
 <ivy-module version="2.0">
     <info organisation="org.sleuthkit.autopsy" module="core"/>
     <configurations >
@@ -13,9 +8,9 @@
         <dependency conf="core->default" org="com.github.vlsi.mxgraph" name="jgraphx" rev="4.2.2" />
 
         <dependency conf="core->default" org="org.apache.activemq" name="activemq-all" rev="6.1.4"/>
-        <dependency conf="core->default" org="org.apache.curator" name="curator-client" rev="&curator.version;"/>
-        <dependency conf="core->default" org="org.apache.curator" name="curator-framework" rev="&curator.version;"/>
-        <dependency conf="core->default" org="org.apache.curator" name="curator-recipes" rev="&curator.version;"/>
+        <dependency conf="core->default" org="org.apache.curator" name="curator-client" rev="${curator.version}"/>
+        <dependency conf="core->default" org="org.apache.curator" name="curator-framework" rev="${curator.version}"/>
+        <dependency conf="core->default" org="org.apache.curator" name="curator-recipes" rev="${curator.version}"/>
 
         <dependency conf="core->default" org="org.python" name="jython-standalone" rev="2.7.4" />
 
@@ -64,12 +59,12 @@
             <exclude org="com.sun.media" module="jai_imageio"/>
         </dependency>
 
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-awt-util" rev="&batik.version;"/>
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-dom" rev="&batik.version;"/>
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-svg-dom" rev="&batik.version;"/>
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-svggen" rev="&batik.version;"/>
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-util" rev="&batik.version;"/>
-        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-xml" rev="&batik.version;"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-awt-util" rev="${batik.version}"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-dom" rev="${batik.version}"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-svg-dom" rev="${batik.version}"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-svggen" rev="${batik.version}"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-util" rev="${batik.version}"/>
+        <dependency conf="core->default" org="org.apache.xmlgraphics" name="batik-xml" rev="${batik.version}"/>
 
         <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
         <dependency conf="core->default" org="javax.ws.rs" name="javax.ws.rs-api" rev="2.1.1"/>
@@ -79,9 +74,9 @@
 
         <dependency conf="core->default" org="com.license4j" name="license4j-runtime-library" rev="4.7.3"/>
 
-        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpclient" rev="&httpcomponents.version;"/>
-        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpmime" rev="&httpcomponents.version;"/>
-        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpclient-win" rev="&httpcomponents.version;">
+        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpclient" rev="${httpcomponents.version}"/>
+        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpmime" rev="${httpcomponents.version}"/>
+        <dependency conf="core->default" org="org.apache.httpcomponents" name="httpclient-win" rev="${httpcomponents.version}">
             <exclude name="jna" />
             <exclude name="jna-platform" />
         </dependency>
