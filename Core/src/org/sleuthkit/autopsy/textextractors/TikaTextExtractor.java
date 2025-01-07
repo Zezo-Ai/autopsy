@@ -75,6 +75,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Set;
+import org.apache.tika.config.TikaConfig;
 import org.apache.tika.mime.MimeTypes;
 import org.apache.tika.parser.pdf.PDFParserConfig.OCR_STRATEGY;
 import org.sleuthkit.autopsy.coreutils.ExecUtil.HybridTerminator;
@@ -282,11 +283,7 @@ final class TikaTextExtractor implements TextExtractor {
         if (isOcrSupported()) {
             // Configure OCR for Tika if it chooses to run OCR
             // during extraction
-            TesseractOCRConfig ocrConfig = new TesseractOCRConfig();
-            String tesseractFolder = TESSERACT_PATH.getParent();
-            ocrConfig.setTesseractPath(tesseractFolder);
-            ocrConfig.setLanguage(languagePacks);
-            ocrConfig.setTessdataPath(PlatformUtil.getOcrLanguagePacksPath());
+            TesseractOCRConfig ocrConfig = getTesseractConfig();
             parseContext.set(TesseractOCRConfig.class, ocrConfig);
 
             // Configure how Tika handles OCRing PDFs
@@ -346,6 +343,16 @@ final class TikaTextExtractor implements TextExtractor {
         } finally {
             future.cancel(true);
         }
+    }
+    
+    private TesseractOCRConfig getTesseractConfig() {
+        // GVDTODO look at this: https://tika.apache.org/3.0.0/configuring.html
+
+        // String tesseractFolder = TESSERACT_PATH.getParent();
+        //     ocrConfig.setTesseractPath(tesseractFolder);
+        //     ocrConfig.setLanguage(languagePacks);
+        //     ocrConfig.setTessdataPath(PlatformUtil.getOcrLanguagePacksPath());
+        return null;    
     }
 
     /**

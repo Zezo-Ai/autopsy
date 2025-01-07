@@ -7,6 +7,7 @@
     <dependencies >
         <dependency conf="core->default" org="com.github.vlsi.mxgraph" name="jgraphx" rev="4.2.2" />
 
+        <dependency org="jakarta.jms" name="jakarta.jms-api" rev="3.1.0"/>
         <dependency conf="core->default" org="org.apache.activemq" name="activemq-all" rev="6.1.4"/>
         <dependency conf="core->default" org="org.apache.curator" name="curator-client" rev="${curator.version}"/>
         <dependency conf="core->default" org="org.apache.curator" name="curator-framework" rev="${curator.version}"/>

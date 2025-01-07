@@ -405,6 +405,7 @@
                 <package>org.apache.commons.io</package>
                 <package>org.apache.commons.io.comparator</package>
                 <package>org.apache.commons.io.filefilter</package>
+                <package>org.apache.commons.io.function</package>
                 <package>org.apache.commons.io.input</package>
                 <package>org.apache.commons.io.monitor</package>
                 <package>org.apache.commons.io.output</package>

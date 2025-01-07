@@ -22,7 +22,7 @@
         <dependency conf="autopsy->default" org="org.apache.lucene" name="lucene-core" rev="9.12.1"/>     
         <!-- Autopsy -->
         <dependency conf="autopsy->default" org="org.apache.solr" name="solr-solrj" rev="8.11.4"/>
-        <dependency conf="autopsy->default" org="com.optimaize.languagedetector" name="language-detector" rev="0.4"/>       
+        <dependency conf="autopsy->default" org="com.optimaize.languagedetector" name="language-detector" rev="0.6"/>       
         <!-- <dependency conf="autopsy->default" org="org.apache.cxf" name="cxf-rt-rs-client" rev="3.5.1"/> -->
         <!-- <dependency conf="autopsy->default" org="org.cleartk" name="cleartk-ml" rev="2.0.0"/> -->
         

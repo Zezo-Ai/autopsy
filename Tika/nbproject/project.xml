@@ -596,6 +596,10 @@
                 <binary-origin>release/modules/ext/tagsoup-1.2.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/tika-core-3.0.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/tika-core-3.0.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/tika-parser-apple-module-3.0.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/tika-parser-apple-module-3.0.0.jar</binary-origin>
             </class-path-extension>
