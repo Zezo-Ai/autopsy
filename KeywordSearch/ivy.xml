@@ -41,8 +41,14 @@
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jcl-over-slf4j" rev="${slf4j.version}"/>
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jul-to-slf4j" rev="${slf4j.version}"/> 
 
-        <!-- <exclude org="*" ext="*" type="javadoc"/>
-        
+
+
+        <!--
+        <exclude org="*" ext="*" type="javadoc"/>
+        <exclude org="org.apache.logging.log4j" ext="*"/>
+        <exclude org="com.google.code.gson" ext="*"/>
+        <exclude org="com.google.guava" ext="*"/>
+
         <override org="org.apache.logging.log4j" module="log4j-api" rev="2.17.2"/>
         <override org="org.apache.logging.log4j" module="log4j-core" rev="2.17.2"/>
         <override org="org.apache.logging.log4j" module="log4j-1.2-api" rev="2.17.2"/>        
