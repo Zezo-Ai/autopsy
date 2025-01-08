@@ -2,6 +2,8 @@
   <property name="jetty.version" value="12.0.16"/>
   <property name="slf4j.version" value="2.0.16"/>
   <property name="log4j.version" value="2.24.3"/>
+  <property name="http2-client.version" value="11.0.24"/>
+  <property name="netty.version" value="4.1.116.Final"/>
 
   <settings defaultResolver="main"/>
   <resolvers>

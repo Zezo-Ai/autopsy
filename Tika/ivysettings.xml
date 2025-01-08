@@ -1,6 +1,7 @@
 <ivysettings>
   <settings defaultResolver="main"/>
   <property name="log4j.version" value="2.24.3"/>
+  <property name="bouncycastle.version" value="1.79"/>
   
   <resolvers>
     <chain name="main">

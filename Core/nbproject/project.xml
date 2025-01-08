@@ -378,6 +378,10 @@
                 <binary-origin>release/modules/ext/angus-activation-2.0.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/annotations-13.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/annotations-13.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/audience-annotations-0.12.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/audience-annotations-0.12.0.jar</binary-origin>
             </class-path-extension>
@@ -430,28 +434,24 @@
                 <binary-origin>release/modules/ext/batik-xml-1.18.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/bcpkix-jdk15on-1.54.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/bcpkix-jdk15on-1.54.jar</binary-origin>
+                <runtime-relative-path>ext/bcpkix-jdk18on-1.79.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/bcpkix-jdk18on-1.79.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/bcprov-ext-jdk15on-1.54.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/bcprov-ext-jdk15on-1.54.jar</binary-origin>
+                <runtime-relative-path>ext/bcprov-jdk18on-1.79.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/bcprov-jdk18on-1.79.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/bcprov-jdk15on-1.54.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/bcprov-jdk15on-1.54.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/bcprov-jdk18on-1.72.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/bcprov-jdk18on-1.72.jar</binary-origin>
+                <runtime-relative-path>ext/bcutil-jdk18on-1.79.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/bcutil-jdk18on-1.79.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/c3p0-0.9.5.5.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/c3p0-0.9.5.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/checker-qual-3.33.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/checker-qual-3.33.0.jar</binary-origin>
+                <runtime-relative-path>ext/checker-qual-3.43.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/checker-qual-3.43.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-codec-1.11.jar</runtime-relative-path>
@@ -462,8 +462,8 @@
                 <binary-origin>release/modules/ext/commons-dbcp2-2.13.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/commons-io-2.17.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/commons-io-2.17.0.jar</binary-origin>
+                <runtime-relative-path>ext/commons-io-2.18.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/commons-io-2.18.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-lang3-3.10.jar</runtime-relative-path>
@@ -498,16 +498,16 @@
                 <binary-origin>release/modules/ext/decodetect-core-0.3.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/error_prone_annotations-2.18.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/error_prone_annotations-2.18.0.jar</binary-origin>
+                <runtime-relative-path>ext/error_prone_annotations-2.36.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/error_prone_annotations-2.36.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/failureaccess-1.0.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/failureaccess-1.0.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/guava-32.0.0-jre.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/guava-32.0.0-jre.jar</binary-origin>
+                <runtime-relative-path>ext/guava-33.4.0-jre.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/guava-33.4.0-jre.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/httpclient-4.5.14.jar</runtime-relative-path>
@@ -538,8 +538,8 @@
                 <binary-origin>release/modules/ext/istack-commons-runtime-4.1.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/j2objc-annotations-2.8.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/j2objc-annotations-2.8.jar</binary-origin>
+                <runtime-relative-path>ext/j2objc-annotations-3.0.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/j2objc-annotations-3.0.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jackcess-4.0.7.jar</runtime-relative-path>
@@ -564,10 +564,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/jakarta.annotation-api-2.1.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jakarta.annotation-api-2.1.1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/jakarta.jms-api-3.1.0-javadoc.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jakarta.jms-api-3.1.0-javadoc.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jakarta.jms-api-3.1.0-sources.jar</runtime-relative-path>
@@ -610,12 +606,16 @@
                 <binary-origin>release/modules/ext/jaxb-runtime-4.0.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jdom-2.0.5-contrib.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jdom-2.0.5-contrib.jar</binary-origin>
+                <runtime-relative-path>ext/jaxen-1.2.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jaxen-1.2.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jdom-2.0.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jdom-2.0.5.jar</binary-origin>
+                <runtime-relative-path>ext/jdom2-2.0.6.1-sources.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jdom2-2.0.6.1-sources.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jdom2-2.0.6.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jdom2-2.0.6.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jfreechart-1.5.5.jar</runtime-relative-path>
@@ -646,6 +646,22 @@
                 <binary-origin>release/modules/ext/jython-standalone-2.7.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/kotlin-stdlib-1.8.21.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/kotlin-stdlib-1.8.21.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/kotlin-stdlib-common-1.9.10.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/kotlin-stdlib-common-1.9.10.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/kotlin-stdlib-jdk7-1.8.21.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/kotlin-stdlib-jdk7-1.8.21.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/kotlin-stdlib-jdk8-1.8.21.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/kotlin-stdlib-jdk8-1.8.21.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/libphonenumber-8.13.52.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/libphonenumber-8.13.52.jar</binary-origin>
             </class-path-extension>
@@ -674,8 +690,8 @@
                 <binary-origin>release/modules/ext/netty-codec-4.1.113.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/netty-common-4.1.113.Final.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/netty-common-4.1.113.Final.jar</binary-origin>
+                <runtime-relative-path>ext/netty-common-4.1.116.Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/netty-common-4.1.116.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/netty-handler-4.1.113.Final.jar</runtime-relative-path>
@@ -686,36 +702,40 @@
                 <binary-origin>release/modules/ext/netty-resolver-4.1.113.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/netty-tcnative-boringssl-static-2.0.66.Final.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/netty-tcnative-boringssl-static-2.0.66.Final.jar</binary-origin>
+                <runtime-relative-path>ext/netty-tcnative-boringssl-static-2.0.69.Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/netty-tcnative-boringssl-static-2.0.69.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/netty-tcnative-classes-2.0.66.Final.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/netty-tcnative-classes-2.0.66.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/netty-transport-4.1.113.Final.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/netty-transport-4.1.113.Final.jar</binary-origin>
+                <runtime-relative-path>ext/netty-transport-4.1.116.Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/netty-transport-4.1.116.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/netty-transport-classes-epoll-4.1.113.Final.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/netty-transport-classes-epoll-4.1.113.Final.jar</binary-origin>
+                <runtime-relative-path>ext/netty-transport-classes-epoll-4.1.116.Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/netty-transport-classes-epoll-4.1.116.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/netty-transport-native-epoll-4.1.113.Final-linux-x86_64.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/netty-transport-native-epoll-4.1.113.Final-linux-x86_64.jar</binary-origin>
+                <runtime-relative-path>ext/netty-transport-native-epoll-4.1.116.Final-linux-x86_64.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/netty-transport-native-epoll-4.1.116.Final-linux-x86_64.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/netty-transport-native-unix-common-4.1.113.Final.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/netty-transport-native-unix-common-4.1.113.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/okhttp-2.7.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/okhttp-2.7.5.jar</binary-origin>
+                <runtime-relative-path>ext/okhttp-4.12.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/okhttp-4.12.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/okio-1.6.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/okio-1.6.0.jar</binary-origin>
+                <runtime-relative-path>ext/okio-3.6.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/okio-3.6.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/okio-jvm-3.6.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/okio-jvm-3.6.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/postgresql-42.7.3.jar</runtime-relative-path>
@@ -764,6 +784,14 @@
             <class-path-extension>
                 <runtime-relative-path>ext/txw2-4.0.5.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/txw2-4.0.5.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xalan-2.7.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xalan-2.7.3.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xercesImpl-2.12.2.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xercesImpl-2.12.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xml-apis-1.4.01.jar</runtime-relative-path>
