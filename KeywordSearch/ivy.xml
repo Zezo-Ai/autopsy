@@ -34,33 +34,29 @@
 		<dependency conf="start-solr->default" org="org.eclipse.jetty" name="jetty-start" rev="${jetty.version}"/>
         <dependency conf="jetty-libs->default" org="org.eclipse.jetty" name="jetty-server" rev="${jetty.version}"/>
         <dependency conf="jetty-libs->default" org="org.eclipse.jetty" name="jetty-deploy" rev="${jetty.version}"/>
-        <dependency conf="servlet->default" org="org.eclipse.jetty.orbit" name="javax.servlet" rev="3.0.0.v201112011016"/>
+        <dependency conf="servlet->default" org="jakarta.servlet" name="jakarta.servlet-api" rev="6.1.0"/>
 
         <!-- logging -->
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="slf4j-log4j12" rev="${slf4j.version}"/>
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jcl-over-slf4j" rev="${slf4j.version}"/>
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jul-to-slf4j" rev="${slf4j.version}"/> 
 
-
-
-        <!--
         <exclude org="*" ext="*" type="javadoc"/>
-        <exclude org="org.apache.logging.log4j" ext="*"/>
-        <exclude org="com.google.code.gson" ext="*"/>
-        <exclude org="com.google.guava" ext="*"/>
+        
+        <override org="commons-io" module="commons-io" rev="2.18"/>
+        <override org="com.google.guava" module="guava" rev="33.4.0-jre"/>
+        
+        <override org="org.apache.logging.log4j" module="log4j-api" rev="${log4j.version}"/>
+        <override org="org.apache.logging.log4j" module="log4j-core" rev="${log4j.version}"/>
+        <override org="org.apache.logging.log4j" module="log4j-1.2-api" rev="${log4j.version}"/>        
+        <override org="org.apache.logging.log4j" module="log4j-layout-template-json" rev="${log4j.version}"/>
+        <override org="org.apache.logging.log4j" module="log4j-slf4j-impl" rev="${log4j.version}"/>
+        <override org="org.apache.logging.log4j" module="log4j-web" rev="${log4j.version}"/>
 
-        <override org="org.apache.logging.log4j" module="log4j-api" rev="2.17.2"/>
-        <override org="org.apache.logging.log4j" module="log4j-core" rev="2.17.2"/>
-        <override org="org.apache.logging.log4j" module="log4j-1.2-api" rev="2.17.2"/>        
-        <override org="org.apache.logging.log4j" module="log4j-layout-template-json" rev="2.17.2"/>
-        <override org="org.apache.logging.log4j" module="log4j-slf4j-impl" rev="2.17.2"/>
-        <override org="org.apache.logging.log4j" module="log4j-web" rev="2.17.2"/>
-        <override org="org.slf4j" module="slf4j-api" rev="${slf4j.version}"/>
+        <override org="io.netty" module="netty-transport" rev="4.1.116.Final"/>
+        <override org="io.netty" module="netty-common" rev="4.1.116.Final"/>
 
-        <override org="org.apache.zookeeper" module="zookeeper" rev="3.8.0"/>
-        <override org="org.apache.zookeeper" module="zookeeper-jute" rev="3.8.0"/>
-        <override org="com.google.code.gson" module="gson" rev="2.9.0"/>
-        <override org="com.google.guava" module="guava" rev="31.1-jre"/>
-        <override org="joda-time" module="joda-time" rev="2.10.14" /> -->
+        <override org="org.apache.zookeeper" module="zookeeper" rev="3.9.3"/>
+        <override org="org.apache.zookeeper" module="zookeeper-jute" rev="3.9.3"/>
     </dependencies>
 </ivy-module>

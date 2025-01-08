@@ -1,7 +1,8 @@
 <ivysettings>
   <property name="jetty.version" value="12.0.16"/>
   <property name="slf4j.version" value="2.0.16"/>
-  
+  <property name="log4j.version" value="2.24.3"/>
+
   <settings defaultResolver="main"/>
   <resolvers>
     <chain name="main">
