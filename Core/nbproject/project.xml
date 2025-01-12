@@ -534,10 +534,6 @@
                 <binary-origin>release/modules/ext/icepdf-viewer-6.2.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/istack-commons-runtime-4.1.2.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/istack-commons-runtime-4.1.2.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/j2objc-annotations-3.0.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/j2objc-annotations-3.0.0.jar</binary-origin>
             </class-path-extension>
@@ -586,24 +582,16 @@
                 <binary-origin>release/modules/ext/java-diff-utils-4.15.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/javax.activation-api-1.2.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/javax.activation-api-1.2.0.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/javax.ws.rs-api-2.1.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/javax.ws.rs-api-2.1.1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/jaxb-api-2.3.1.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jaxb-api-2.3.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jaxb-core-4.0.5.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jaxb-core-4.0.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jaxb-runtime-4.0.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jaxb-runtime-4.0.5.jar</binary-origin>
+                <runtime-relative-path>ext/jaxb-impl-4.0.5.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jaxb-impl-4.0.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jaxen-1.2.0.jar</runtime-relative-path>
@@ -780,10 +768,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/sqlite-jdbc-3.47.1.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/sqlite-jdbc-3.47.1.0.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/txw2-4.0.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/txw2-4.0.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xalan-2.7.3.jar</runtime-relative-path>
