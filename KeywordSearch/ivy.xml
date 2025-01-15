@@ -17,11 +17,11 @@
         <!-- Solr -->
 	    <dependency conf="solr-war->default" org="org.apache.solr" name="solr" rev="4.10.4" transitive="false" /> <!-- the war file for embedded Solr 4 -->
         
-        <dependency conf="solr-libs->default" name="solr-cell" rev="8.11.4" org="org.apache.solr"/>
+        <dependency conf="solr-libs->default" org="org.apache.solr" name="solr-cell" rev="${solr.version}"/>
         <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
-        <dependency conf="autopsy->default" org="org.apache.lucene" name="lucene-core" rev="9.12.1"/>     
+        <dependency conf="autopsy->default" org="org.apache.lucene" name="lucene-core" rev="${solr.version}"/>     
         <!-- Autopsy -->
-        <dependency conf="autopsy->default" org="org.apache.solr" name="solr-solrj" rev="9.7.0"/>
+        <dependency conf="autopsy->default" org="org.apache.solr" name="solr-solrj" rev="${solr.version}"/>
         <dependency conf="autopsy->default" org="com.optimaize.languagedetector" name="language-detector" rev="0.6"/>       
         <!-- <dependency conf="autopsy->default" org="org.apache.cxf" name="cxf-rt-rs-client" rev="3.5.1"/> -->
         <!-- <dependency conf="autopsy->default" org="org.cleartk" name="cleartk-ml" rev="2.0.0"/> -->
@@ -43,7 +43,6 @@
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jcl-over-slf4j" rev="${slf4j.version}"/>
         <dependency conf="slf4j-libs->default" org="org.slf4j" name="jul-to-slf4j" rev="${slf4j.version}"/> 
 
-        <exclude org="org.eclipse.jetty.http2" ext="*"/>
         <exclude org="" ext="*" type="javadoc"/>
         
         <override org="commons-io" module="commons-io" rev="2.18.0"/>
@@ -64,7 +63,7 @@
         <override org="io.netty" module="netty-transport-native-epoll" rev="${netty.version}"/>
         <override org="io.netty" module="netty-transport-classes-epoll" rev="${netty.version}"/>
         
-        <override org="org.apache.zookeeper" module="zookeeper" rev="3.9.3"/>
-        <override org="org.apache.zookeeper" module="zookeeper-jute" rev="3.9.3"/>
+        <override org="org.apache.zookeeper" module="zookeeper" rev="${zookeeper.version}"/>
+        <override org="org.apache.zookeeper" module="zookeeper-jute" rev="${zookeeper.version}"/>
     </dependencies>
 </ivy-module>

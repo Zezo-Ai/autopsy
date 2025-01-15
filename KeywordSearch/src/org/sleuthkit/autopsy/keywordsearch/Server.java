@@ -71,7 +71,6 @@ import org.apache.solr.client.solrj.response.CollectionAdminResponse;
 import org.apache.solr.client.solrj.request.CoreAdminRequest;
 import org.apache.solr.client.solrj.response.CoreAdminResponse;
 import org.apache.solr.client.solrj.impl.BaseHttpSolrClient.RemoteSolrException;
-import org.apache.solr.client.solrj.impl.Http2SolrClient;
 import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.TermsResponse;
@@ -394,11 +393,8 @@ public class Server {
         logger.log(Level.INFO, "Creating new CloudSolrClient"); //NON-NLS
         int connectionTimeoutMs = org.sleuthkit.autopsy.keywordsearch.UserPreferences.getConnectionTimeout();
         CloudSolrClient client = new CloudSolrClient.Builder(solrUrls)
-                .withInternalClientBuilder(new Http2SolrClient.Builder()
-                    .withConnectionTimeout(connectionTimeoutMs, TimeUnit.MILLISECONDS)
-                    .withRequestTimeout(connectionTimeoutMs, TimeUnit.MILLISECONDS)
-                )
-                .withResponseParser(new XMLResponseParser())
+                .withConnectionTimeout(connectionTimeoutMs)
+                .withSocketTimeout(connectionTimeoutMs)
                 .build();
         if (!defaultCollectionName.isEmpty()) {
             client.setDefaultCollection(defaultCollectionName);
