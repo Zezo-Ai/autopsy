@@ -324,7 +324,7 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         // Read the settings from the wizard 
         readConfigSettings();
         this.host = host;
-        this.password = StringUtils.defaultIfEmpty(password, this.password);
+        this.password = StringUtils.defaultString(password, this.password);
 
         // Set up the data source before creating the ingest stream
         try {
@@ -375,8 +375,8 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         if (sha256.isEmpty()) {
             sha256 = null;
         }
-        password = configPanel.getPassword();
-        if (password.isEmpty()) {
+        this.password = configPanel.getPassword();
+        if (this.password.isEmpty()) {
             password = null;
         }
     }
@@ -532,12 +532,12 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
 
     @Override
     public void process(String deviceId, Path dataSourcePath, DataSourceProcessorProgressMonitor progressMonitor, DataSourceProcessorCallback callBack) {
-        process(deviceId, dataSourcePath, this.password, null, progressMonitor, callBack);
+        process(deviceId, dataSourcePath, null, null, progressMonitor, callBack);
     }
 
     @Override
     public void process(String deviceId, Path dataSourcePath, Host host, DataSourceProcessorProgressMonitor progressMonitor, DataSourceProcessorCallback callBack) {
-        process(deviceId, dataSourcePath, this.password, host, progressMonitor, callBack);
+        process(deviceId, dataSourcePath, null, host, progressMonitor, callBack);
     }
 
     @Override
@@ -547,14 +547,14 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
         this.imagePath = dataSourcePath.toString();
         this.sectorSize = 0;
         this.timeZone = Calendar.getInstance().getTimeZone().getID();
-        this.password = password;
+        this.password = StringUtils.defaultString(password, this.password);
         this.host = host;
         this.ignoreFatOrphanFiles = false;
 
         ingestStream = new DefaultIngestStream();
         try {
             image = SleuthkitJNI.addImageToDatabase(Case.getCurrentCase().getSleuthkitCase(),
-                    new String[]{imagePath}, sectorSize, timeZone, "", "", "", deviceId, password, host);
+                    new String[]{imagePath}, sectorSize, timeZone, "", "", "", deviceId, this.password, host);
         } catch (TskCoreException ex) {
             logger.log(Level.SEVERE, "Error adding data source with path " + imagePath + " to database", ex);
             final List<String> errors = new ArrayList<>();
@@ -563,19 +563,19 @@ public class ImageDSProcessor implements DataSourceProcessor, AutoIngestDataSour
             return;
         }
 
-        doAddImageProcess(deviceId, dataSourcePath.toString(), sectorSize, timeZone, ignoreFatOrphanFiles, null, null, null, password, progressMonitor, callBack);
+        doAddImageProcess(deviceId, dataSourcePath.toString(), sectorSize, timeZone, ignoreFatOrphanFiles, null, null, null, this.password, progressMonitor, callBack);
     }
     
 
 
     @Override
     public IngestStream processWithIngestStream(String deviceId, Path dataSourcePath, IngestJobSettings settings, DataSourceProcessorProgressMonitor progressMonitor, DataSourceProcessorCallback callBack) {
-        return processWithIngestStream(deviceId, dataSourcePath, this.password, null, settings, progressMonitor, callBack);
+        return processWithIngestStream(deviceId, dataSourcePath, null, null, settings, progressMonitor, callBack);
     }
 
     @Override
     public IngestStream processWithIngestStream(String deviceId, Path dataSourcePath, Host host, IngestJobSettings settings, DataSourceProcessorProgressMonitor progressMonitor, DataSourceProcessorCallback callBack) {
-        return processWithIngestStream(deviceId, dataSourcePath, this.password, host, settings, progressMonitor, callBack);
+        return processWithIngestStream(deviceId, dataSourcePath, null, host, settings, progressMonitor, callBack);
     }
 
     @Override
