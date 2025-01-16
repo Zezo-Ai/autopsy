@@ -157,7 +157,7 @@ public class DataSourceProcessorUtility {
      * org.sleuthkit.autopsy.datasourceprocessors.AutoIngestDataSourceProcessor.AutoIngestDataSourceProcessorException
      */
     public static List<AutoIngestDataSourceProcessor> getOrderedListOfDataSourceProcessors(Path dataSourcePath, String password, Collection<? extends AutoIngestDataSourceProcessor> processorCandidates) throws AutoIngestDataSourceProcessorException {
-        Map<AutoIngestDataSourceProcessor, Integer> validDataSourceProcessorsMap = getDataSourceProcessorForFile(dataSourcePath, processorCandidates);
+        Map<AutoIngestDataSourceProcessor, Integer> validDataSourceProcessorsMap = getDataSourceProcessorForFile(dataSourcePath, password, processorCandidates);
         return orderDataSourceProcessorsByConfidence(validDataSourceProcessorsMap);
     }   
 
