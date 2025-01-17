@@ -53,7 +53,7 @@ public class CommandLineOptionProcessor extends OptionProcessor {
     private final Option dataSourcePathOption = Option.requiredArgument('s', "dataSourcePath");
     private final Option dataSourceObjectIdOption = Option.requiredArgument('i', "dataSourceObjectId");
     private final Option addDataSourceCommandOption = Option.withoutArgument('a', "addDataSource");
-    private final Option bitlockerKeyCommandOption = Option.withoutArgument('k', "key");
+    private final Option bitlockerKeyCommandOption = Option.requiredArgument('k', "key");
     private final Option runIngestCommandOption = Option.optionalArgument('r', "runIngest");
     private final Option listAllDataSourcesCommandOption = Option.withoutArgument('l', "listAllDataSources");
     private final Option generateReportsOption = Option.optionalArgument('g', "generateReports");
