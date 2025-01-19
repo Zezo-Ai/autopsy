@@ -15,6 +15,8 @@ environment:
     JDK_HOME: "C:\\Program Files\\Java\\jdk17"
     JAVA_HOME: "C:\\Program Files\\Java\\jdk17"
     PYTHON: "C:\\Python36-x64"
+    PLATFORM_REL_DIR: "netbeans-plat/15"
+    HARNESS_REL_DIR: "netbeans-plat/15/harness"
 
 install:
   - ps: choco install nuget.commandline
@@ -41,8 +43,8 @@ build_script:
   - cmd: ant -q
   - ps: popd
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmd: ant -q build
+  - cmd: ant -q -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/%PLATFORM_REL_DIR%" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/%HARNESS_REL_DIR%" build
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmd: ant -q -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15/harness" test-no-regression
+  - cmd: ant -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/%PLATFORM_REL_DIR%" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/%HARNESS_REL_DIR%" test-no-regression
