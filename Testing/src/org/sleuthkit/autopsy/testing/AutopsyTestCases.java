@@ -177,6 +177,7 @@ public class AutopsyTestCases {
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 0);
             jtbo.clickMouse();
             wo.btNext().clickMouse();
+            new Timeout("pausing", 60000).sleep();
             JTextFieldOperator jtfo0 = new JTextFieldOperator(wo, 0);
             String img_path = getEscapedPath(System.getProperty("img_path"));
             String imageDir = img_path;
@@ -213,6 +214,7 @@ public class AutopsyTestCases {
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 2);
             jtbo.clickMouse();
             wo.btNext().clickMouse();
+            new Timeout("pausing", 60000).sleep();
             JButtonOperator addButtonOperator = new JButtonOperator(wo, "Add");
             addButtonOperator.pushNoBlock();
             JFileChooserOperator fileChooserOperator = new JFileChooserOperator();
