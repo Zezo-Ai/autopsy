@@ -45,7 +45,4 @@ build_script:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - SET NETBEANS_PLAT_VER=15
-  - SET AUTOPSY_PLATFORM_PATH="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/%NETBEANS_PLAT_VER%"
-  - SET AUTOPSY_HARNESS_PATH="%AUTOPSY_PLATFORM_PATH%/harness"
-  - cmd: ant -q ant -Dnbplatform.active.dir="%AUTOPSY_PLATFORM_PATH%" -Dnbplatform.default.harness.dir="%AUTOPSY_HARNESS_PATH%" test-no-regression
+  - cmd: ant -q ant -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15/harness" test-no-regression
