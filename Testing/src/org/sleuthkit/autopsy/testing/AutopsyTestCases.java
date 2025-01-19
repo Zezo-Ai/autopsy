@@ -185,6 +185,7 @@ public class AutopsyTestCases {
             new Timeout("pausing", 60000).sleep();
             JComboBoxOperator comboBoxOperator = new JComboBoxOperator(wo, 0);
             comboBoxOperator.setSelectedItem("(GMT-5:00) America/New_York");
+            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
