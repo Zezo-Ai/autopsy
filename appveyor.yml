@@ -47,4 +47,5 @@ build_script:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmd: ant -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/%PLATFORM_REL_DIR%" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/%HARNESS_REL_DIR%" test-no-regression
+  - cmd: ant -f "%APPVEYOR_BUILD_FOLDER%/Core/build.xml" -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/%PLATFORM_REL_DIR%" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/%HARNESS_REL_DIR%" test-unit
+  - cmd: ant -f "%APPVEYOR_BUILD_FOLDER%/KeywordSearch/build.xml" -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/%PLATFORM_REL_DIR%" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/%HARNESS_REL_DIR%" test-unit
