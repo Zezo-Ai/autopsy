@@ -181,6 +181,7 @@ public class AutopsyTestCases {
             String img_path = getEscapedPath(System.getProperty("img_path"));
             String imageDir = img_path;
             ((JTextComponent) jtfo0.getSource()).setText(imageDir);
+            new Timeout("pausing", 60000).sleep();
             JComboBoxOperator comboBoxOperator = new JComboBoxOperator(wo, 0);
             comboBoxOperator.setSelectedItem("(GMT-5:00) America/New_York");
             wo.btNext().clickMouse();
@@ -219,6 +220,7 @@ public class AutopsyTestCases {
             // set the current directory one level above the directory containing logicalFileSet folder.
             fileChooserOperator.goUpLevel();
             fileChooserOperator.chooseFile(new File(getEscapedPath(System.getProperty("img_path"))).getName());
+            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
