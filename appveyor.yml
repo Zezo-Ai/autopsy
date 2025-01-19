@@ -45,4 +45,4 @@ build_script:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmd: ant -q ant -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15/harness" test-no-regression
+  - cmd: ant -q -Dnbplatform.active.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15" -Dnbplatform.default.harness.dir="%APPVEYOR_BUILD_FOLDER%/netbeans-plat/15/harness" test-no-regression
