@@ -175,7 +175,9 @@ public class AutopsyTestCases {
 
             //select the toggle button for Disk Image or VM File it will be the first button created and proceed to next panel
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 0);
+            new Timeout("pausing", 60000).sleep();
             jtbo.clickMouse();
+            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
             new Timeout("pausing", 60000).sleep();
             JTextFieldOperator jtfo0 = new JTextFieldOperator(wo, 0);
@@ -187,6 +189,7 @@ public class AutopsyTestCases {
             comboBoxOperator.setSelectedItem("(GMT-5:00) America/New_York");
             new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
+            new Timeout("pausing", 60000).sleep();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
@@ -210,10 +213,12 @@ public class AutopsyTestCases {
 
             // pass by host menu with auto-generate host (which should already be selected)
             wo.btNext().clickMouse();
-
+            new Timeout("pausing", 60000).sleep();
+            
             //select the toggle button for Logical Files it will be the third button created and proceed to next panel
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 2);
             jtbo.clickMouse();
+            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
             new Timeout("pausing", 60000).sleep();
             JButtonOperator addButtonOperator = new JButtonOperator(wo, "Add");
@@ -225,6 +230,7 @@ public class AutopsyTestCases {
             fileChooserOperator.chooseFile(new File(getEscapedPath(System.getProperty("img_path"))).getName());
             new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
+            new Timeout("pausing", 60000).sleep();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
