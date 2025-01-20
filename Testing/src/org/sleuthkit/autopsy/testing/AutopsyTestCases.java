@@ -193,6 +193,7 @@ public class AutopsyTestCases {
                 logger.log(Level.INFO, "clicking next button");
                 wo.btNext().clickMouse();
             }).start();
+            new Timeout("pausing", 8000).sleep();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
