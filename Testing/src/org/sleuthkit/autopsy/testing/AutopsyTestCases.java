@@ -188,11 +188,11 @@ public class AutopsyTestCases {
             logger.log(Level.INFO, "setting time zone");
             comboBoxOperator.setSelectedItem("(GMT-5:00) America/New_York");
             // do in invoke later to allow time for validation to happen.
-            SwingUtilities.invokeLater(() -> {
+            new Thread(() -> {
                 new Timeout("pausing", 5000).sleep();
                 logger.log(Level.INFO, "clicking next button");
                 wo.btNext().clickMouse();
-            });
+            }).start();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
