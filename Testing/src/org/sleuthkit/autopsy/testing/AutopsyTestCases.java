@@ -46,6 +46,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.imageio.ImageIO;
 import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 import javax.swing.tree.TreePath;
 import org.apache.commons.io.IOUtils;
@@ -64,7 +65,6 @@ import org.netbeans.jemmy.operators.JCheckBoxOperator;
 import org.netbeans.jemmy.operators.JComboBoxOperator;
 import org.netbeans.jemmy.operators.JDialogOperator;
 import org.netbeans.jemmy.operators.JFileChooserOperator;
-import org.netbeans.jemmy.operators.JLabelOperator;
 import org.netbeans.jemmy.operators.JListOperator;
 import org.netbeans.jemmy.operators.JTabbedPaneOperator;
 import org.netbeans.jemmy.operators.JTableOperator;
@@ -175,21 +175,24 @@ public class AutopsyTestCases {
 
             //select the toggle button for Disk Image or VM File it will be the first button created and proceed to next panel
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 0);
-            new Timeout("pausing", 60000).sleep();
             jtbo.clickMouse();
-            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
-            new Timeout("pausing", 60000).sleep();
+            new Timeout("pausing", 5000).sleep();
             JTextFieldOperator jtfo0 = new JTextFieldOperator(wo, 0);
             String img_path = getEscapedPath(System.getProperty("img_path"));
             String imageDir = img_path;
+            logger.log(Level.INFO, "setting image path to " + imageDir);
             ((JTextComponent) jtfo0.getSource()).setText(imageDir);
-            new Timeout("pausing", 60000).sleep();
+            new Timeout("pausing", 5000).sleep();
             JComboBoxOperator comboBoxOperator = new JComboBoxOperator(wo, 0);
+            logger.log(Level.INFO, "setting time zone");
             comboBoxOperator.setSelectedItem("(GMT-5:00) America/New_York");
-            new Timeout("pausing", 60000).sleep();
-            wo.btNext().clickMouse();
-            new Timeout("pausing", 60000).sleep();
+            // do in invoke later to allow time for validation to happen.
+            SwingUtilities.invokeLater(() -> {
+                new Timeout("pausing", 5000).sleep();
+                logger.log(Level.INFO, "clicking next button");
+                wo.btNext().clickMouse();
+            });
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
@@ -213,14 +216,11 @@ public class AutopsyTestCases {
 
             // pass by host menu with auto-generate host (which should already be selected)
             wo.btNext().clickMouse();
-            new Timeout("pausing", 60000).sleep();
-            
+
             //select the toggle button for Logical Files it will be the third button created and proceed to next panel
             JToggleButtonOperator jtbo = new JToggleButtonOperator(wo, 2);
             jtbo.clickMouse();
-            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
-            new Timeout("pausing", 60000).sleep();
             JButtonOperator addButtonOperator = new JButtonOperator(wo, "Add");
             addButtonOperator.pushNoBlock();
             JFileChooserOperator fileChooserOperator = new JFileChooserOperator();
@@ -228,9 +228,7 @@ public class AutopsyTestCases {
             // set the current directory one level above the directory containing logicalFileSet folder.
             fileChooserOperator.goUpLevel();
             fileChooserOperator.chooseFile(new File(getEscapedPath(System.getProperty("img_path"))).getName());
-            new Timeout("pausing", 60000).sleep();
             wo.btNext().clickMouse();
-            new Timeout("pausing", 60000).sleep();
         } catch (TimeoutExpiredException ex) {
             logger.log(Level.SEVERE, "AutopsyTestCases.testNewCaseWizard encountered timed out", ex);
             logSystemDiagnostics();
