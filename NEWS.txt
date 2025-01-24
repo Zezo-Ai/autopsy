@@ -1,3 +1,33 @@
+---------------- VERSION 4.22.0 ---------------
+Library Updates
+- Update JNA Version
+- Update SQLite library version
+- Updated 3rd party libraries
+- Update Adv Installer verion to 22.3
+
+Ingest Module Updates
+- Fix Opera Browser parsing
+- Update Prefetch and System Resource Usage Parsing
+	
+Add Datasource Updates
+- Added Bitlocker Support
+- Add VHDX support
+
+GUI Updates
+- Change Tagnames from Unknown to Suspicious
+
+Bugs
+- Show Centeral Repository window in front of splash screen
+- Fixes for external file/URL opening on linux and loading of offline help
+- Allow Timeline filter to be editable
+- Check version of Solr used and if older version, display message there might be an issue with the new version of Solr
+- Allows installing TSK in an empty directory with linux_macos_install_scripts.
+
+Misc 
+- Run Cyber Triage and Autopsy at the same time.
+- checks if enough memory is present and displays warning if not when installing.
+- Snap store updates
+
 ---------------- VERSION 4.21.0 ---------------
 Library Updates
 - Update Java to version 17
