@@ -10,7 +10,7 @@ Ingest Module Updates
 - Update Prefetch and System Resource Usage Parsing
 	
 Add Datasource Updates
-- Added Bitlocker Support
+- Added Bitlocker Support (Windows only)
 - Add VHDX support
 
 GUI Updates
